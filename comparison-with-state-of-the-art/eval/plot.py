@@ -92,7 +92,7 @@ FUZZER_COLOR = {
     "sgfuzz": "#808b88",
 }
 
-ROOT = Path("artifact-results")
+ROOT = Path("artifact-results-test")
 RESULT_DIR = ROOT / "finished"
 CHARTS_DIR = ROOT / "charts"
 CHARTS_SVG_DIR = CHARTS_DIR / "svg"
