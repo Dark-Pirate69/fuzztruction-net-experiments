@@ -265,7 +265,7 @@ class Executor:
         ]
 
         volumes: typing.Dict[str, typing.Dict[str,str]] = {}
-        if self._image_name == "fuzztruction-env":
+        if self._image_name == "fuzztruction-net-env":
             home_dir_path = self._remote.execute_on_remote(["echo $HOME"]).stdout.strip()
             fuzztruction_dir = Path(home_dir_path) / "fuzztruction-net"
 
