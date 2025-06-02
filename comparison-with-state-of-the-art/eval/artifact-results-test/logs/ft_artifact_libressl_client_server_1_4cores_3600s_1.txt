@@ -1,0 +1,15 @@
+[2025-06-02 21:33:27,486][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181
+[2025-06-02 21:33:27,486][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:33:57,941][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:33:58,256][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:33:58,257][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.
+[2025-06-02 21:43:40,039][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181
+[2025-06-02 21:43:40,039][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:44:10,361][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:44:10,666][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:44:10,666][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.
+[2025-06-02 21:45:31,240][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181
+[2025-06-02 21:45:31,241][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:46:02,104][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:46:02,371][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:46:02,371][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.

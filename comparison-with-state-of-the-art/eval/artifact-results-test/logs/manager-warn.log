@@ -1,0 +1,29 @@
+[2025-06-02 21:33:58,256][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:33:58,257][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.
+[2025-06-02 21:33:58,553][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:33:58,553][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 13a89aeecddad24a7423235a97fb56785006886195f41ae93a0ffc69b2c74383 on localhost.
+[2025-06-02 21:37:40,849][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:37:40,849][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:44:10,666][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:44:10,666][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.
+[2025-06-02 21:44:10,706][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:44:10,706][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:44:10,707][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:44:10,707][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 13a89aeecddad24a7423235a97fb56785006886195f41ae93a0ffc69b2c74383 on localhost.
+[2025-06-02 21:46:02,371][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:46:02,371][manager.ft_artifact_libressl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 917ae74f5455c59edec960e738049a720c4d3b46bb6b653166235724be6f9181 on localhost.
+[2025-06-02 21:46:02,524][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:46:02,525][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:46:02,668][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:46:02,668][manager.ft_artifact_openssl_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 13a89aeecddad24a7423235a97fb56785006886195f41ae93a0ffc69b2c74383 on localhost.
+[2025-06-02 21:50:55,426][manager][WARNING][remote.py:173]: Failed to find matching job instance for ft_artifact_libressl_client_server_1_4cores_3600s_1
+[2025-06-02 21:50:55,426][manager][WARNING][remote.py:571]: Found job that is not part of this campaign: ft_artifact_libressl_client_server_1_4cores_3600s_1
+[2025-06-02 21:50:55,426][manager][WARNING][remote.py:573]: Killing unknown job ft_artifact_libressl_client_server_1_4cores_3600s_1
+[2025-06-02 21:50:56,216][manager][WARNING][remote.py:173]: Failed to find matching job instance for ft_artifact_openssl_client_server_1_4cores_3600s_1
+[2025-06-02 21:50:56,216][manager][WARNING][remote.py:571]: Found job that is not part of this campaign: ft_artifact_openssl_client_server_1_4cores_3600s_1
+[2025-06-02 21:50:56,216][manager][WARNING][remote.py:573]: Killing unknown job ft_artifact_openssl_client_server_1_4cores_3600s_1
+[2025-06-02 21:51:28,653][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:51:28,653][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:53:27,866][manager][WARNING][remote.py:173]: Failed to find matching job instance for ft_artifact_gnutls_client_server_1_4cores_3600s_1
+[2025-06-02 21:53:27,866][manager][WARNING][remote.py:571]: Found job that is not part of this campaign: ft_artifact_gnutls_client_server_1_4cores_3600s_1
+[2025-06-02 21:53:27,866][manager][WARNING][remote.py:573]: Killing unknown job ft_artifact_gnutls_client_server_1_4cores_3600s_1

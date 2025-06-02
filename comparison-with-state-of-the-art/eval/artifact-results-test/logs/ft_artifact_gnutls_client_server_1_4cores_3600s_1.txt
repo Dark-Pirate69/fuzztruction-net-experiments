@@ -1,0 +1,217 @@
+[2025-06-02 21:34:33,578][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c
+[2025-06-02 21:34:33,578][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:36:36,840][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
+[2025-06-02 21:36:37,505][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
+2025-06-02T19:34:33.576893139Z Executing run script...
+2025-06-02T19:34:33.581226911Z tput: No value for $TERM and no -T specified
+2025-06-02T19:34:34.061656091Z    Compiling libc v0.2.153
+2025-06-02T19:34:34.061678934Z    Compiling proc-macro2 v1.0.78
+2025-06-02T19:34:34.061681319Z    Compiling unicode-ident v1.0.12
+2025-06-02T19:34:34.061906406Z    Compiling autocfg v1.1.0
+2025-06-02T19:34:34.113769032Z    Compiling cfg-if v1.0.0
+2025-06-02T19:34:34.135935479Z    Compiling serde v1.0.192
+2025-06-02T19:34:34.359528699Z    Compiling value-bag v1.4.1
+2025-06-02T19:34:34.499199784Z    Compiling bitflags v1.3.2
+2025-06-02T19:34:34.528591945Z    Compiling quote v1.0.35
+2025-06-02T19:34:34.631936866Z    Compiling syn v2.0.48
+2025-06-02T19:34:34.721042519Z    Compiling scopeguard v1.2.0
+2025-06-02T19:34:34.759437501Z    Compiling version_check v0.9.4
+2025-06-02T19:34:34.964018727Z    Compiling itoa v1.0.9
+2025-06-02T19:34:35.059501895Z    Compiling rustix v0.38.19
+2025-06-02T19:34:35.123920351Z    Compiling cc v1.0.83
+2025-06-02T19:34:35.319105447Z    Compiling bitflags v2.4.1
+2025-06-02T19:34:35.548928260Z    Compiling getrandom v0.2.10
+2025-06-02T19:34:35.758889465Z    Compiling memoffset v0.9.0
+2025-06-02T19:34:35.908155705Z    Compiling linux-raw-sys v0.4.10
+2025-06-02T19:34:36.024194216Z    Compiling lazy_static v1.4.0
+2025-06-02T19:34:36.061743053Z    Compiling memchr v2.6.4
+2025-06-02T19:34:36.507174966Z    Compiling typenum v1.17.0
+2025-06-02T19:34:36.870940240Z    Compiling ryu v1.0.15
+2025-06-02T19:34:37.241333453Z    Compiling generic-array v0.14.7
+2025-06-02T19:34:37.418036099Z    Compiling num-traits v0.2.17
+2025-06-02T19:34:37.554762558Z    Compiling crossbeam-utils v0.8.17
+2025-06-02T19:34:37.715458639Z    Compiling strsim v0.10.0
+2025-06-02T19:34:37.742140664Z    Compiling signal-hook v0.3.17
+2025-06-02T19:34:37.867927113Z    Compiling serde_json v1.0.108
+2025-06-02T19:34:37.917503405Z    Compiling fnv v1.0.7
+2025-06-02T19:34:37.951648916Z    Compiling equivalent v1.0.1
+2025-06-02T19:34:37.976942152Z    Compiling hashbrown v0.14.1
+2025-06-02T19:34:38.015059568Z    Compiling ident_case v1.0.1
+2025-06-02T19:34:38.058891379Z    Compiling darling_core v0.20.3
+2025-06-02T19:34:38.305410094Z    Compiling indexmap v2.0.2
+2025-06-02T19:34:38.475900420Z    Compiling serde_derive v1.0.192
+2025-06-02T19:34:39.375897856Z    Compiling signal-hook-registry v1.4.1
+2025-06-02T19:34:39.818395412Z    Compiling memoffset v0.6.5
+2025-06-02T19:34:39.883938985Z    Compiling crossbeam-epoch v0.9.15
+2025-06-02T19:34:39.959400228Z    Compiling thiserror v1.0.49
+2025-06-02T19:34:40.068816639Z    Compiling toml_datetime v0.6.3
+2025-06-02T19:34:40.144029279Z    Compiling winnow v0.5.17
+2025-06-02T19:34:40.180925995Z    Compiling anyhow v1.0.75
+2025-06-02T19:34:40.515436581Z    Compiling darling_macro v0.20.3
+2025-06-02T19:34:40.808546446Z    Compiling aho-corasick v1.1.2
+2025-06-02T19:34:41.271991489Z    Compiling toml_edit v0.19.15
+2025-06-02T19:34:43.257695915Z    Compiling log v0.4.20
+2025-06-02T19:34:43.425646203Z    Compiling scroll_derive v0.11.1
+2025-06-02T19:34:43.569111638Z    Compiling thiserror-impl v1.0.49
+2025-06-02T19:34:43.741006248Z    Compiling is-terminal v0.4.9
+2025-06-02T19:34:43.778889248Z    Compiling rand_core v0.6.4
+2025-06-02T19:34:43.954335203Z    Compiling cmake v0.1.50
+2025-06-02T19:34:44.042352133Z    Compiling lock_api v0.4.11
+2025-06-02T19:34:44.184713502Z    Compiling cfg_aliases v0.1.1
+2025-06-02T19:34:44.207946434Z    Compiling parking_lot_core v0.9.9
+2025-06-02T19:34:44.210519081Z    Compiling once_cell v1.18.0
+2025-06-02T19:34:44.317254659Z    Compiling regex-syntax v0.8.2
+2025-06-02T19:34:44.393446406Z    Compiling bytes v1.5.0
+2025-06-02T19:34:44.630862665Z    Compiling rustversion v1.0.14
+2025-06-02T19:34:44.923110277Z    Compiling ppv-lite86 v0.2.17
+2025-06-02T19:34:45.133616368Z    Compiling rand_chacha v0.3.1
+2025-06-02T19:34:45.306282903Z    Compiling proc-macro-crate v1.3.1
+2025-06-02T19:34:45.550719545Z    Compiling regex-automata v0.4.2
+2025-06-02T19:34:45.925731749Z    Compiling keystone-sys v0.9.2 (https://github.com/keystone-engine/keystone?tag=0.9.2#dc7932ef)
+2025-06-02T19:34:46.188617566Z    Compiling nix v0.28.0
+2025-06-02T19:34:46.488297536Z    Compiling scroll v0.11.0
+2025-06-02T19:34:46.505779353Z    Compiling colored v1.9.4
+2025-06-02T19:34:46.713092477Z    Compiling darling v0.20.3
+2025-06-02T19:34:47.284981402Z    Compiling plain v0.2.3
+2025-06-02T19:34:47.307398493Z    Compiling utf8-width v0.1.6
+2025-06-02T19:34:47.334130441Z    Compiling rayon-core v1.12.0
+2025-06-02T19:34:47.360209287Z    Compiling smallvec v1.11.1
+2025-06-02T19:34:47.468206249Z    Compiling rust_decimal v1.35.0
+2025-06-02T19:34:47.494010014Z    Compiling proc-maps v0.2.1 (/home/user/fuzztruction/lib/proc-maps)
+2025-06-02T19:34:47.546091093Z    Compiling syscalls v0.6.18
+2025-06-02T19:34:47.656331947Z    Compiling crc32fast v1.3.2
+2025-06-02T19:34:47.739702581Z    Compiling libloading v0.6.7
+2025-06-02T19:34:47.864007089Z    Compiling goblin v0.7.1
+2025-06-02T19:34:47.869318508Z    Compiling regex v1.10.1
+2025-06-02T19:34:48.174067190Z    Compiling nix v0.22.3
+2025-06-02T19:34:48.226635334Z    Compiling crossbeam-deque v0.8.3
+2025-06-02T19:34:48.375333308Z    Compiling serde_with_macros v3.4.0
+2025-06-02T19:34:49.636975839Z    Compiling num_enum_derive v0.7.0
+2025-06-02T19:34:51.671391257Z    Compiling rand v0.8.5
+2025-06-02T19:34:52.573526139Z    Compiling mio v0.8.9
+2025-06-02T19:34:53.843157626Z    Compiling block-buffer v0.10.4
+2025-06-02T19:34:53.915262300Z    Compiling crypto-common v0.1.6
+2025-06-02T19:34:53.928072443Z    Compiling serde_repr v0.1.19
+2025-06-02T19:34:53.976387918Z    Compiling capstone-sys v0.11.0
+2025-06-02T19:34:54.306711443Z    Compiling fs2 v0.4.3
+2025-06-02T19:34:54.432755603Z    Compiling indexmap v1.9.3
+2025-06-02T19:34:54.521958523Z    Compiling arrayvec v0.7.4
+2025-06-02T19:34:54.606409055Z    Compiling pkg-config v0.3.28
+2025-06-02T19:34:54.697201084Z    Compiling heck v0.4.1
+2025-06-02T19:34:54.832014951Z    Compiling portable-atomic v1.4.3
+2025-06-02T19:34:55.054126129Z    Compiling time-core v0.1.2
+2025-06-02T19:34:55.099480437Z    Compiling iana-time-zone v0.1.57
+2025-06-02T19:34:55.209541568Z    Compiling adler v1.0.2
+2025-06-02T19:34:55.351629322Z    Compiling unicode-width v0.1.11
+2025-06-02T19:34:55.414537875Z    Compiling either v1.9.0
+2025-06-02T19:34:55.509283322Z    Compiling minimal-lexical v0.2.1
+2025-06-02T19:34:55.688082337Z    Compiling nix v0.14.1
+2025-06-02T19:34:55.760663025Z    Compiling glob v0.3.1
+2025-06-02T19:34:55.822028488Z    Compiling async-trait v0.1.77
+2025-06-02T19:34:56.003409147Z    Compiling powerfmt v0.2.0
+2025-06-02T19:34:56.028879889Z    Compiling generator-agent v0.1.0 (/home/user/fuzztruction/generator/agent)
+2025-06-02T19:34:56.166406588Z    Compiling deranged v0.3.9
+2025-06-02T19:34:56.298727480Z    Compiling nom v7.1.3
+2025-06-02T19:34:56.734041851Z    Compiling miniz_oxide v0.7.1
+2025-06-02T19:34:57.994857743Z    Compiling chrono v0.4.34
+2025-06-02T19:34:58.507869204Z    Compiling time-macros v0.2.15
+2025-06-02T19:34:59.786937076Z    Compiling pcap v1.1.0
+2025-06-02T19:35:00.397076265Z    Compiling strum_macros v0.25.3
+2025-06-02T19:35:02.888643991Z    Compiling shared_memory v0.12.0 (https://github.com/elast0ny/shared_memory-rs?rev=4879c7641f64d444420b81fd32f496939ee7155d#4879c764)
+2025-06-02T19:35:03.322361989Z    Compiling digest v0.10.7
+2025-06-02T19:35:03.452327743Z    Compiling signal-hook-mio v0.2.3
+2025-06-02T19:35:03.506294430Z    Compiling num_enum v0.7.0
+2025-06-02T19:35:03.550527239Z    Compiling llvm_stackmap v0.1.5
+2025-06-02T19:35:04.176213611Z    Compiling serde_with v3.4.0
+2025-06-02T19:35:05.054872460Z    Compiling parking_lot v0.12.1
+2025-06-02T19:35:09.432636311Z    Compiling byte-unit v4.0.19
+2025-06-02T19:35:09.646105389Z    Compiling fern v0.6.2
+2025-06-02T19:35:09.654665029Z    Compiling filedescriptor v0.8.2
+2025-06-02T19:35:09.834236052Z    Compiling csv-core v0.1.11
+2025-06-02T19:35:12.032498712Z    Compiling posixmq v0.2.0
+2025-06-02T19:35:12.286670952Z    Compiling atty v0.2.14
+2025-06-02T19:35:12.339414744Z    Compiling dirs v1.0.5
+2025-06-02T19:35:12.661200080Z    Compiling ahash v0.7.6
+2025-06-02T19:35:12.845335180Z    Compiling pin-project-lite v0.2.13
+2025-06-02T19:35:12.886523744Z    Compiling cfg-if v0.1.10
+2025-06-02T19:35:12.918475414Z    Compiling hashbrown v0.12.3
+2025-06-02T19:35:13.404707200Z    Compiling cpufeatures v0.2.9
+2025-06-02T19:35:13.436914104Z    Compiling void v1.0.2
+2025-06-02T19:35:13.490937047Z    Compiling fastrand v2.0.1
+2025-06-02T19:35:20.494030260Z    Compiling byteorder v1.5.0
+2025-06-02T19:35:20.693199258Z    Compiling os_str_bytes v6.6.1
+2025-06-02T19:35:21.084860338Z    Compiling num_threads v0.1.6
+2025-06-02T19:35:21.311780708Z    Compiling md5 v0.7.0
+2025-06-02T19:35:21.537900348Z    Compiling fuzztruction_shared v0.1.0 (/home/user/fuzztruction/fuzztruction_shared)
+2025-06-02T19:35:25.233950673Z    Compiling time v0.3.30
+2025-06-02T19:35:26.649033604Z    Compiling clap_lex v0.2.4
+2025-06-02T19:35:27.259879096Z    Compiling term v0.5.2
+2025-06-02T19:35:30.943873255Z    Compiling tempfile v3.8.0
+2025-06-02T19:35:36.578955679Z    Compiling sha2 v0.10.8
+2025-06-02T19:35:38.756218975Z    Compiling tokio v1.35.1
+2025-06-02T19:35:41.486047915Z    Compiling csv v1.3.0
+2025-06-02T19:35:42.603912865Z    Compiling flate2 v1.0.28
+2025-06-02T19:35:43.280287642Z    Compiling rayon v1.8.0
+2025-06-02T19:35:45.519018904Z    Compiling crossterm v0.25.0
+2025-06-02T19:35:47.220503958Z    Compiling byte-unit v5.1.4
+2025-06-02T19:35:48.515018516Z    Compiling rusticata-macros v4.1.0
+2025-06-02T19:35:48.932737536Z    Compiling console v0.15.8
+2025-06-02T19:35:49.890053576Z    Compiling uuid v1.4.1
+2025-06-02T19:35:50.417253703Z    Compiling errno v0.2.8
+2025-06-02T19:35:50.543039858Z    Compiling num_cpus v1.16.0
+2025-06-02T19:35:51.147168321Z    Compiling itertools v0.4.19
+2025-06-02T19:35:51.567554594Z    Compiling hex v0.4.3
+2025-06-02T19:35:51.743254079Z    Compiling stable_deref_trait v1.2.0
+2025-06-02T19:35:51.784656060Z    Compiling encode_unicode v0.3.6
+2025-06-02T19:35:51.804952819Z    Compiling textwrap v0.16.0
+2025-06-02T19:35:52.681127634Z    Compiling circular v0.3.0
+2025-06-02T19:35:52.915776016Z    Compiling linked-hash-map v0.5.6
+2025-06-02T19:35:53.059214879Z    Compiling number_prefix v0.4.0
+2025-06-02T19:35:53.147789086Z    Compiling ansi_term v0.12.1
+2025-06-02T19:35:53.411674579Z    Compiling fallible-iterator v0.3.0
+2025-06-02T19:35:53.419956268Z    Compiling termcolor v1.3.0
+2025-06-02T19:35:53.579669618Z    Compiling arrayvec v0.5.2
+2025-06-02T19:35:53.769183177Z    Compiling hexdump v0.1.1
+2025-06-02T19:35:53.967297374Z    Compiling clap v3.2.25
+2025-06-02T19:35:54.101000421Z    Compiling gimli v0.28.0
+2025-06-02T19:35:54.950996767Z    Compiling indicatif v0.17.7
+2025-06-02T19:35:59.019364592Z    Compiling yaml-rust v0.4.5
+2025-06-02T19:36:01.682033479Z    Compiling pcap-parser v0.15.0
+2025-06-02T19:36:03.464596227Z    Compiling prettytable-rs v0.8.0
+2025-06-02T19:36:04.019471179Z    Compiling sha256 v1.5.0
+2025-06-02T19:36:04.362372222Z    Compiling core_affinity v0.5.10
+2025-06-02T19:36:05.112310966Z    Compiling mktemp v0.5.1
+2025-06-02T19:36:05.314299088Z    Compiling tqdm v0.6.0
+2025-06-02T19:36:05.879771328Z    Compiling capstone v0.7.0
+2025-06-02T19:36:06.112558785Z    Compiling sysinfo v0.30.10
+2025-06-02T19:36:08.724357612Z    Compiling file-rotate v0.7.5
+2025-06-02T19:36:09.933515015Z    Compiling signal v0.7.0
+2025-06-02T19:36:12.563997206Z    Compiling jail v0.1.0 (/home/user/fuzztruction/lib/jail)
+2025-06-02T19:36:13.956032898Z    Compiling simple_logger v1.16.0
+2025-06-02T19:36:14.307612962Z    Compiling itertools v0.11.0
+2025-06-02T19:36:14.904401157Z    Compiling llvm-cov-json v0.1.2
+2025-06-02T19:36:15.513122474Z    Compiling wait-timeout v0.2.0
+2025-06-02T19:36:15.671918651Z    Compiling bitreader v0.3.8
+2025-06-02T19:36:15.892686675Z    Compiling elf v0.7.3
+2025-06-02T19:36:16.760946137Z    Compiling dot v0.1.4
+2025-06-02T19:36:17.333643252Z    Compiling maplit v1.0.2
+2025-06-02T19:36:17.370017805Z    Compiling fs_extra v1.3.0
+
+[2025-06-02 21:37:40,570][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:37:40,849][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:37:40,849][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:43:40,038][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c
+[2025-06-02 21:43:40,038][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:44:10,398][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:44:10,706][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:44:10,707][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:45:31,240][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c
+[2025-06-02 21:45:31,240][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:46:02,244][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:46:02,524][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:46:02,525][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
+[2025-06-02 21:50:55,425][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c
+[2025-06-02 21:50:55,425][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
+[2025-06-02 21:51:28,371][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
+[2025-06-02 21:51:28,653][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
+[2025-06-02 21:51:28,653][manager.ft_artifact_gnutls_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 8906375888c439d969e8a1f35d220ca3fcd211e924ba0a8511079dc52afbfc7c on localhost.
