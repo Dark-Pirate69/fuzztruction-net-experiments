@@ -495,12 +495,6 @@ class Remote:
                 check=True,
             )
             subprocess.run(
-                f"ssh {self._ssh_address} 'echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'",
-                stdin=None,
-                shell=True,
-                check=True,
-            )
-            subprocess.run(
                 f"ssh {self._ssh_address} 'echo 0 | sudo tee /proc/sys/fs/suid_dumpable'",
                 stdin=None,
                 shell=True,
