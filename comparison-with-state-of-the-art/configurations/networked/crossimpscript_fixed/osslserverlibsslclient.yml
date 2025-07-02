@@ -1,4 +1,4 @@
-work-directory: "/tmp/openlib-client-server-1"
+work-directory: "/tmp/openessl-server-libressl-client-1"
 input-directory: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/no-inputs"
 jail-uid: 606400022
 jail-gid: 606400022

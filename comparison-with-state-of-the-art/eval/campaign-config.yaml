@@ -24,17 +24,19 @@ default-target-settings:
     allowed-tags: ["eval"]
 
 targets:
- - "artifact_openssl_client_server_1":
+ - "artifact_openlib_client_server_1":
         # The yaml config of the target
-        config: "~/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/openssl/openssl_client_server_1.yml"
+        #config: "~/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/libressl_client_server.yml"
+        config: "~/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/libressl_client_server.yml"
         # Targets of which the dependencies must be installed.
         # I.e., folder names in binaries/networked
         build-target-dependencies:
+            - libressl
             - openssl
         # See default-target-setting for more details
         target-settings:
-          fuzzers:
-              - ft
+            fuzzers:
+                - ft
 
 remotes:
     # Remote name.

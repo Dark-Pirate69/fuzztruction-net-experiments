@@ -1,4 +1,4 @@
-work-directory: "/tmp/openlib-client-server-1"
+work-directory: "/tmp/libressl-client-server-1"
 input-directory: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/no-inputs"
 jail-uid: 606400022
 jail-gid: 606400022
@@ -14,10 +14,8 @@ source:
     log-stderr: false
 
 sink:
-    bin-path: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/openssl/consumer/openssl/apps/openssl"
-    env:
-        - LD_LIBRARY_PATH: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/openssl/consumer/openssl/"
-    arguments: ["s_server", "-key", "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/openssl/server/1024/key.pem", "-cert", "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/openssl/server/1024/cert.pem", "-accept", "44330", "-www", "-naccept", "1"]
+    bin-path: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/libressl/consumer/libressl/build/apps/openssl/openssl"
+    arguments: ["s_server", "-key", "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/server/1024/key.pem", "-cert", "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/server/1024/cert.pem", "-accept", "44330", "-www", "-naccept", "1"]
     input-type: Tcp
     output-type: Tcp
     is-server: true
@@ -25,10 +23,9 @@ sink:
     log-stdout: false
     log-stderr: true
     allow-unstable-sink: true
+
 sink-cov:
-    bin-path: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/openssl/consumer_llvm_cov/openssl/apps/openssl"
-    env:
-        - LD_LIBRARY_PATH: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/openssl/consumer_llvm_cov/openssl/"
+    bin-path: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/libressl/consumer_llvm_cov/libressl/build/apps/openssl/openssl"
 
 afl-net:
     bin-path: "/home/user/fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked/libressl/consumer_afl_net/libressl/build/apps/openssl/openssl"

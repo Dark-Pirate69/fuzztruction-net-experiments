@@ -1,63 +1,6 @@
-[2025-06-23 19:15:51,936][manager][INFO][manager.py:76]: Checking results directory for already finished jobs.
-[2025-06-23 19:15:51,936][manager][INFO][manager.py:83]: 0 of 1 jobs done or running
-[2025-06-23 19:15:51,936][manager][INFO][remote.py:488]: Connection to host localhost
-[2025-06-23 19:15:54,826][manager][INFO][remote.py:576]: Found 0 running executors.
-[2025-06-23 19:15:54,826][manager][INFO][remote.py:532]: Connection test successful!
-[2025-06-23 19:15:54,826][manager][INFO][manager.py:139]: There are 1 pending jobs
-[2025-06-23 19:15:55,131][manager][INFO][manager.py:145]: Remote localhost has 4 free cores
-[2025-06-23 19:15:55,131][manager][INFO][manager.py:180]: job_tags={'eval'}
-[2025-06-23 19:15:55,131][manager][INFO][manager.py:181]: remote_Tags={'eval'}
-[2025-06-23 19:15:55,131][manager][INFO][manager.py:153]: Going to schedule the following job: ft_artifact_openlib_client_server_1_4cores_3600s_1
-[2025-06-23 19:15:55,451][manager][INFO][remote.py:122]: Run script:
-#!/bin/bash
-echo "Executing run script..."
-cd /home/user/fuzztruction
-check_env.sh
-sudo ldconfig
-
-set -eu
-cargo build
-
-pushd fuzztruction-experiments/comparison-with-state-of-the-art/binaries/networked
-deps=(libressl openssl)
-for target in ${deps[@]}; do
-    ./build.sh $target deps
-done
-popd
-
-sudo ./target/debug/fuzztruction /home/user//fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/libressl_client_server.yml --log-level debug --purge --no-log-output --suffix ft_artifact_openlib_client_server_1_4cores_3600s_1 fuzz -j 4 -t 3600s || true
-
-mkdir -p /home/user/fuzztruction/eval-result
-sudo rm -rf /home/user/fuzztruction/eval-result/ft_artifact_openlib_client_server_1_4cores_3600s_1
-sudo chown user -R /tmp/openlib-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1
-rsync -a /tmp/openlib-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1/ /home/user/fuzztruction/eval-result/ft_artifact_openlib_client_server_1_4cores_3600s_1
-sudo ./target/debug/fuzztruction /home/user//fuzztruction/fuzztruction-experiments/comparison-with-state-of-the-art/configurations/networked/libressl/libressl_client_server.yml --workdir /home/user/fuzztruction/eval-result/ft_artifact_openlib_client_server_1_4cores_3600s_1 llvm-cov -j 5 --with-post-processing -t 5s
-sudo chown user -R /home/user/fuzztruction/eval-result/ft_artifact_openlib_client_server_1_4cores_3600s_1
-sudo chmod -R 777 /home/user/fuzztruction/eval-result
-
-[2025-06-23 19:15:55,451][manager][INFO][remote.py:462]: Executing command on remote localhost:
-echo $HOME
-[2025-06-23 19:15:55,709][manager][INFO][remote.py:290]: volumes={'/home/vboxuser/fuzztruction-net/eval-result': {'bind': '/home/user/fuzztruction/eval-result', 'mode': 'rw'}}
 [2025-06-23 19:15:56,748][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:352]: container: 16750ee36ea2bae5f5d8ec27050376391b9b5d4fe53855c4749f8d62988de6e8
 [2025-06-23 19:15:56,749][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:353]: host: localhost
-[2025-06-23 19:15:58,751][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:16:28,754][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:16:28,754][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:16:28,754][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:16:29,067][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:16:59,237][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:16:59,237][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:16:59,237][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:16:59,781][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:17:31,446][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:17:31,447][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:17:31,447][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:17:32,004][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:18:02,868][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:18:02,868][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:18:02,868][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:18:03,154][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:18:03,198][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:18:03,762][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:15:56.747619456Z Executing run script...
 2025-06-23T17:15:56.751056300Z tput: No value for $TERM and no -T specified
@@ -254,23 +197,7 @@ echo $HOME
 2025-06-23T17:17:36.237555717Z    Compiling maplit v1.0.2
 2025-06-23T17:17:36.266381937Z    Compiling fs_extra v1.3.0
 
-[2025-06-23 19:18:33,199][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:18:33,199][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:18:33,199][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:18:33,544][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:19:03,839][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:19:03,839][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:19:03,839][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:19:04,537][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:19:34,539][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:19:34,539][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:19:34,539][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:19:34,836][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:20:05,388][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:20:05,388][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:20:05,388][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:20:05,740][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:20:05,747][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:20:06,440][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:18:24.247134427Z    Compiling keystone v0.9.2 (https://github.com/keystone-engine/keystone?tag=0.9.2#dc7932ef)
 2025-06-23T17:18:27.451647319Z    Compiling scheduler v0.1.0 (/home/user/fuzztruction/scheduler)
@@ -15494,19 +15421,7 @@ echo $HOME
 2025-06-23T17:20:04.993388562Z     None: 1,
 2025-06-23T17:20:04.993390867Z }
 
-[2025-06-23 19:20:35,748][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:20:35,748][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:20:35,748][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:20:36,060][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:21:43,025][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:21:43,026][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:21:43,026][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:22:05,049][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:22:36,965][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:22:36,965][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:22:36,965][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:22:53,359][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:22:53,522][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:22:54,080][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:20:08.576664742Z [2025-06-23 17:20:08:576446648][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 1204 of 4058 executions (progress=29.67%, left=2854, execs/s=60.01, time_left=Some(46s), phase=Discovery)
 2025-06-23T17:20:08.613508432Z [2025-06-23 17:20:08:613321979][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 758 of 30078 executions (progress=2.52%, left=29320, execs/s=37.78, time_left=Some(771s), phase=Discovery)
@@ -16464,23 +16379,7 @@ echo $HOME
 2025-06-23T17:22:52.324679762Z }
 2025-06-23T17:22:52.368277958Z [2025-06-23 17:22:52:368065263][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 2727 of 3164 executions (progress=86.19%, left=437, execs/s=40.58, time_left=Some(10s), phase=Discovery)
 
-[2025-06-23 19:23:30,453][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:23:30,454][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:23:30,454][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:23:35,822][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:24:07,615][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:24:07,615][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:24:07,615][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:24:07,996][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:24:41,754][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:24:41,754][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:24:41,754][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:24:42,149][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:25:12,159][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:25:12,160][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:25:12,160][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:25:12,428][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:25:12,459][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:25:13,109][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:22:57.303670885Z [2025-06-23 17:22:57:303337542][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 1024 of 4699 executions (progress=21.79%, left=3675, execs/s=51.12, time_left=Some(70s), phase=Discovery)
 2025-06-23T17:22:59.667480600Z [2025-06-23 17:22:59:666921929][scheduler][7860][common.rs:316][[37mINFO[0m] Recorded a PCAP of size 286348 during calibration.
@@ -17703,22 +17602,6 @@ echo $HOME
 2025-06-23T17:25:01.909023633Z     ): 15,
 2025-06-23T17:25:01.909025577Z }
 
-[2025-06-23 19:25:42,461][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:25:42,461][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:25:42,461][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:25:42,916][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:26:19,064][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:26:19,064][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:26:19,064][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:26:19,590][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:26:50,193][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:26:50,193][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:26:50,193][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:26:50,491][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:27:20,614][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:27:20,614][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:27:20,614][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:27:21,123][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:27:21,297][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:27:21,888][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:25:13.792343764Z [2025-06-23 17:25:13:792076036][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 2120 of 5426 executions (progress=39.07%, left=3306, execs/s=52.94, time_left=Some(62s), phase=Discovery)
@@ -18078,23 +17961,7 @@ echo $HOME
 2025-06-23T17:27:16.008410371Z [2025-06-23 17:27:16:008183630][scheduler][7749][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 12858 executions
 2025-06-23T17:27:18.985732684Z [2025-06-23 17:27:18:985524859][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 8722 of 15253 executions (progress=57.18%, left=6531, execs/s=54.48, time_left=Some(118s), phase=Discovery)
 
-[2025-06-23 19:27:52,795][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:27:52,795][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:27:52,795][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:27:53,152][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:28:24,214][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:28:24,215][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:28:24,218][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:28:24,542][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:28:54,554][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:28:54,554][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:28:54,554][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:28:54,849][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:29:25,010][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:29:25,014][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:29:25,014][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:29:25,308][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:29:25,333][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:29:26,034][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:27:25.799492075Z [2025-06-23 17:27:25:799286445][fuzztruction][7745][handler.rs:129][[37mINFO[0m] Dumping campaign to disk
 2025-06-23T17:27:25.799525359Z [2025-06-23 17:27:25:799351468][scheduler][7745][queue.rs:613][[37mINFO[0m] Dumping queue to "/tmp/libressl-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1/queue"
@@ -18501,23 +18368,7 @@ echo $HOME
 2025-06-23T17:29:17.689926988Z [2025-06-23 17:29:17:689842297][scheduler][7825][queue.rs:231][[37mDEBUG[0m] Patch Points left for discovery 19880
 2025-06-23T17:29:17.788399746Z [2025-06-23 17:29:17:788189887][scheduler][7825][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 7535 executions
 
-[2025-06-23 19:29:57,903][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:29:57,903][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:29:57,903][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:29:58,251][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:30:29,672][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:30:29,672][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:30:29,672][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:30:29,994][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:31:02,064][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:31:02,065][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:31:02,065][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:31:02,403][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:31:32,960][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:31:32,961][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:31:32,961][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:31:33,314][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:31:33,355][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:31:34,025][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:29:27.435877442Z [2025-06-23 17:29:27:435592762][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 1150 of 20572 executions (progress=5.59%, left=19422, execs/s=57.42, time_left=Some(334s), phase=Discovery)
 2025-06-23T17:29:31.366513603Z [2025-06-23 17:29:31:366209396][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 10652 of 21881 executions (progress=48.68%, left=11229, execs/s=53.03, time_left=Some(207s), phase=Discovery)
@@ -18843,22 +18694,6 @@ echo $HOME
 2025-06-23T17:31:29.836820324Z [2025-06-23 17:31:29:836619683][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 7060 of 20572 executions (progress=34.32%, left=13512, execs/s=49.57, time_left=Some(270s), phase=Discovery)
 2025-06-23T17:31:31.132087680Z [2025-06-23 17:31:31:131888641][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 978 of 2982 executions (progress=32.80%, left=2004, execs/s=48.77, time_left=Some(40s), phase=Discovery)
 
-[2025-06-23 19:32:03,864][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:32:03,864][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:32:03,864][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:32:04,164][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:32:34,198][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:32:34,198][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:32:34,198][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:32:34,520][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:33:08,384][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:33:08,385][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:33:08,388][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:33:08,704][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:33:39,170][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:33:39,170][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:33:39,170][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:33:39,534][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:33:40,395][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:33:41,091][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:31:35.540204265Z [2025-06-23 17:31:35:539878798][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 890 of 6750 executions (progress=13.19%, left=5860, execs/s=44.44, time_left=Some(130s), phase=Discovery)
@@ -19284,22 +19119,6 @@ echo $HOME
 2025-06-23T17:33:33.355436035Z [2025-06-23 17:33:33:354782644][scheduler][7895][queue.rs:231][[37mDEBUG[0m] Patch Points left for discovery 19580
 2025-06-23T17:33:33.452143574Z [2025-06-23 17:33:33:451919759][scheduler][7895][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 4233 executions
 
-[2025-06-23 19:34:09,535][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:34:09,535][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:34:09,535][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:34:09,841][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:34:42,232][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:34:42,232][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:34:42,232][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:34:57,799][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:35:29,836][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:35:29,836][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:35:29,837][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:35:31,024][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:36:02,884][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:36:02,885][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:36:02,885][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:36:04,370][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:36:04,370][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:36:05,120][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:33:44.932747250Z [2025-06-23 17:33:44:932477849][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 6280 of 10029 executions (progress=62.62%, left=3749, execs/s=52.30, time_left=Some(70s), phase=Discovery)
@@ -19506,23 +19325,7 @@ echo $HOME
 2025-06-23T17:35:58.841186518Z [2025-06-23 17:35:58:840980728][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 2984 of 4455 executions (progress=66.98%, left=1471, execs/s=49.69, time_left=Some(29s), phase=Discovery)
 2025-06-23T17:36:00.295630022Z [2025-06-23 17:36:00:295332106][scheduler][7825][mutators.rs:94][[37mDEBUG[0m] Mutator RandomByte(1) exceeded timeout of 60s
 
-[2025-06-23 19:36:35,725][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:36:35,725][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:36:35,725][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:36:36,166][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:37:08,522][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:37:08,522][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:37:08,522][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:37:08,874][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:37:39,807][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:37:39,807][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:37:39,808][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:37:40,534][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:38:11,149][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:38:11,154][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:38:11,154][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:38:11,462][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:38:11,484][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:38:12,231][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:36:06.196543284Z [2025-06-23 17:36:06:196241491][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 8126 of 15793 executions (progress=51.45%, left=7667, execs/s=50.75, time_left=Some(150s), phase=Discovery)
 2025-06-23T17:36:12.788153868Z [2025-06-23 17:36:12:787825794][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 4040 of 11646 executions (progress=34.69%, left=7606, execs/s=50.45, time_left=Some(149s), phase=Discovery)
@@ -20096,22 +19899,6 @@ echo $HOME
 2025-06-23T17:38:08.784714380Z [2025-06-23 17:38:08:784439819][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 2695 of 11254 executions (progress=23.95%, left=8559, execs/s=44.87, time_left=Some(190s), phase=Discovery)
 2025-06-23T17:38:11.752540478Z [2025-06-23 17:38:11:752333335][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 1944 of 4455 executions (progress=43.64%, left=2511, execs/s=48.53, time_left=Some(51s), phase=Discovery)
 
-[2025-06-23 19:38:42,359][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:38:42,359][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:38:42,359][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:38:42,688][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:39:14,754][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:39:14,755][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:39:14,757][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:39:15,097][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:39:45,765][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:39:45,765][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:39:45,765][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:39:46,106][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:40:16,121][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:40:16,121][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:40:16,121][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:40:17,356][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:40:17,518][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:40:18,217][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:38:15.569262545Z [2025-06-23 17:38:15:568835193][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 5136 of 8196 executions (progress=62.66%, left=3060, execs/s=51.32, time_left=Some(58s), phase=Discovery)
@@ -20548,23 +20335,7 @@ echo $HOME
 2025-06-23T17:40:03.873796295Z [2025-06-23 17:40:03:873553525][scheduler][7749][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 14246 executions
 2025-06-23T17:40:15.143630020Z [2025-06-23 17:40:15:143306845][scheduler][7825][run_common.rs:93][[37mINFO[0m] Queue entry calibration failed: ExecutionDurationVarianceTooHight
 
-[2025-06-23 19:40:47,376][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:40:47,376][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:40:47,376][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:40:47,879][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:41:22,477][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:41:22,477][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:41:22,478][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:41:22,783][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:41:52,787][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:41:52,787][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:41:52,787][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:41:53,080][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:42:23,935][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:42:23,937][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:42:23,937][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:42:24,269][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:42:24,281][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:42:24,960][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:40:18.409882898Z [2025-06-23 17:40:18:409624417][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 859 of 3727 executions (progress=23.05%, left=2868, execs/s=42.87, time_left=Some(66s), phase=Discovery)
 2025-06-23T17:40:20.978518117Z [2025-06-23 17:40:20:978196757][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 2952 of 5666 executions (progress=52.10%, left=2714, execs/s=49.16, time_left=Some(54s), phase=Discovery)
@@ -21198,23 +20969,7 @@ echo $HOME
 2025-06-23T17:42:17.874972078Z [2025-06-23 17:42:17:874748123][scheduler][7860][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 8093 executions
 2025-06-23T17:42:24.028737079Z [2025-06-23 17:42:24:028446599][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 6678 of 14246 executions (progress=46.88%, left=7568, execs/s=47.64, time_left=Some(157s), phase=Discovery)
 
-[2025-06-23 19:42:54,566][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:42:54,566][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:42:54,566][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:42:54,896][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:43:28,368][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:43:28,369][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:43:28,369][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:43:28,713][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:43:58,979][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:43:58,980][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:43:58,984][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:43:59,306][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:44:29,427][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:44:29,431][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:44:29,431][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:44:29,687][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:44:29,739][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:44:30,386][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:42:24.028737079Z [2025-06-23 17:42:24:028446599][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 6678 of 14246 executions (progress=46.88%, left=7568, execs/s=47.64, time_left=Some(157s), phase=Discovery)
 2025-06-23T17:42:26.735020857Z [2025-06-23 17:42:26:734789097][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 4052 of 6628 executions (progress=61.13%, left=2576, execs/s=50.60, time_left=Some(50s), phase=Discovery)
@@ -21773,23 +21528,7 @@ echo $HOME
 2025-06-23T17:44:29.336846773Z [2025-06-23 17:44:29:336699805][scheduler][7749][queue.rs:231][[37mDEBUG[0m] Patch Points left for discovery 18580
 2025-06-23T17:44:29.444729595Z [2025-06-23 17:44:29:444459725][scheduler][7749][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 15225 executions
 
-[2025-06-23 19:45:01,805][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:45:01,805][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:45:01,805][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:45:02,576][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:45:32,578][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:45:32,578][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:45:32,578][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:45:32,893][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:46:03,200][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:46:03,201][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:46:03,201][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:46:03,511][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:46:33,728][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:46:33,728][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:46:33,728][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:46:33,882][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:46:34,044][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:46:34,636][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:44:32.425486527Z [2025-06-23 17:44:32:425250641][fuzztruction][7745][handler.rs:129][[37mINFO[0m] Dumping campaign to disk
 2025-06-23T17:44:32.425514911Z [2025-06-23 17:44:32:425313901][scheduler][7745][queue.rs:613][[37mINFO[0m] Dumping queue to "/tmp/libressl-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1/queue"
@@ -22277,22 +22016,6 @@ echo $HOME
 2025-06-23T17:46:33.295495513Z [2025-06-23 17:46:33:295291237][fuzztruction][7745][handler.rs:129][[37mINFO[0m] Dumping campaign to disk
 2025-06-23T17:46:33.295524729Z [2025-06-23 17:46:33:295389453][scheduler][7745][queue.rs:613][[37mINFO[0m] Dumping queue to "/tmp/libressl-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1/queue"
 
-[2025-06-23 19:47:04,233][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:47:04,233][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:47:04,233][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:47:04,600][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:47:35,489][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:47:35,489][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:47:35,490][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:47:35,817][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:48:08,725][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:48:08,726][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:48:08,726][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:48:09,394][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:48:40,858][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:48:40,859][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:48:40,859][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:48:42,935][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:48:42,952][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:48:43,627][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:46:41.246288025Z [2025-06-23 17:46:41:246027752][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 2340 of 6034 executions (progress=38.78%, left=3694, execs/s=58.46, time_left=Some(62s), phase=Discovery)
@@ -22787,23 +22510,7 @@ echo $HOME
 2025-06-23T17:48:34.809837820Z [2025-06-23 17:48:34:809615438][scheduler][7745][queue.rs:613][[37mINFO[0m] Dumping queue to "/tmp/libressl-client-server-1-ft_artifact_openlib_client_server_1_4cores_3600s_1/queue"
 2025-06-23T17:48:35.034775551Z [2025-06-23 17:48:35:034568588][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 994 of 4746 executions (progress=20.94%, left=3752, execs/s=49.61, time_left=Some(75s), phase=Discovery)
 
-[2025-06-23 19:49:12,936][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:49:12,936][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:49:12,936][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:49:13,221][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:49:43,384][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:49:43,385][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:49:43,385][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:49:44,815][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:50:16,892][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:50:16,892][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:50:16,892][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:50:17,285][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:50:47,286][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:50:47,287][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:50:47,287][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:50:47,466][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:50:47,612][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:50:48,158][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:48:48.039418570Z [2025-06-23 17:48:48:039190228][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 6101 of 9688 executions (progress=62.97%, left=3587, execs/s=50.82, time_left=Some(70s), phase=Discovery)
 2025-06-23T17:48:50.845465482Z [2025-06-23 17:48:50:845231729][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 4509 of 11920 executions (progress=37.83%, left=7411, execs/s=75.08, time_left=Some(97s), phase=Discovery)
@@ -23338,23 +23045,7 @@ echo $HOME
 2025-06-23T17:50:43.478956234Z }
 2025-06-23T17:50:46.886502096Z [2025-06-23 17:50:46:886268854][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 2829 of 5615 executions (progress=50.38%, left=2786, execs/s=47.11, time_left=Some(58s), phase=Discovery)
 
-[2025-06-23 19:51:17,612][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:51:17,612][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:51:17,612][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:51:18,129][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:51:48,130][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:51:48,130][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:51:48,130][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:51:48,580][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:52:21,673][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:52:21,673][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:52:21,673][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:52:21,991][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:52:52,137][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:52:52,139][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:52:52,139][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:52:52,373][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:52:52,476][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:52:53,148][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:50:48.003077765Z [2025-06-23 17:50:48:002916329][scheduler][7860][main_loop.rs:134][[37mINFO[0m] Running Discovery phase
 2025-06-23T17:50:48.004951355Z [2025-06-23 17:50:48:004856875][scheduler][7860][queue.rs:231][[37mDEBUG[0m] Patch Points left for discovery 17930
@@ -23881,23 +23572,7 @@ echo $HOME
 2025-06-23T17:52:51.837518665Z     sink_crashes: "0 (0.00%)",
 2025-06-23T17:52:51.837521110Z }
 
-[2025-06-23 19:53:24,868][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:53:24,869][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:53:24,869][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:53:26,472][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:53:56,643][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:53:56,644][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:53:56,644][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:53:57,023][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:54:27,043][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:54:27,043][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:54:27,043][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:54:28,531][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:55:00,213][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:55:00,213][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:55:00,213][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 19:55:00,350][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 19:55:00,538][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:55:01,264][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:52:53.567143273Z [2025-06-23 17:52:53:566944537][scheduler][7895][main_loop.rs:41][[37mINFO[0m] Next entry picked for fuzzing: QueueEntry {
 2025-06-23T17:52:53.567235759Z     id: QueueEntryId(
@@ -24201,22 +23876,6 @@ echo $HOME
 2025-06-23T17:54:54.395190850Z [2025-06-23 17:54:54:394901542][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 10386 of 20465 executions (progress=50.75%, left=10079, execs/s=51.89, time_left=Some(193s), phase=Discovery)
 2025-06-23T17:54:58.263778731Z [2025-06-23 17:54:58:263554997][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 3013 of 5721 executions (progress=52.67%, left=2708, execs/s=50.18, time_left=Some(53s), phase=Discovery)
 
-[2025-06-23 19:55:31,031][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:55:31,031][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:55:31,031][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:55:31,405][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:56:01,409][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:56:01,410][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:56:01,410][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:56:01,811][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:56:31,817][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:56:31,817][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:56:31,817][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:56:32,200][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:57:02,200][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:57:02,200][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:57:02,200][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:57:02,538][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:57:02,813][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:57:03,480][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:55:07.287488783Z [2025-06-23 17:55:07:287172153][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 6109 of 15607 executions (progress=39.14%, left=9498, execs/s=50.87, time_left=Some(186s), phase=Discovery)
@@ -24568,22 +24227,6 @@ echo $HOME
 2025-06-23T17:56:52.702300127Z [2025-06-23 17:56:52:702106129][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 2963 of 5927 executions (progress=49.99%, left=2964, execs/s=49.36, time_left=Some(59s), phase=Discovery)
 2025-06-23T17:56:59.091508918Z [2025-06-23 17:56:59:091212425][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 3021 of 13318 executions (progress=22.68%, left=10297, execs/s=50.30, time_left=Some(201s), phase=Discovery)
 
-[2025-06-23 19:57:32,544][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:57:32,545][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:57:32,545][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:57:32,843][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:58:06,123][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:58:06,123][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:58:06,123][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:58:07,302][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:58:37,397][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:58:37,398][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:58:37,398][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:58:37,748][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 19:59:07,759][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:59:07,759][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:59:07,759][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:59:09,324][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 19:59:09,891][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 19:59:10,623][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:57:07.346392307Z [2025-06-23 17:57:07:346022747][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 12043 of 15607 executions (progress=77.16%, left=3564, execs/s=50.15, time_left=Some(69s), phase=Discovery)
@@ -25068,23 +24711,7 @@ echo $HOME
 2025-06-23T17:59:08.716825409Z [2025-06-23 17:59:08:716396846][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 3007 of 12526 executions (progress=24.01%, left=9519, execs/s=50.07, time_left=Some(186s), phase=Discovery)
 2025-06-23T17:59:09.346781835Z [2025-06-23 17:59:09:346572067][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 3860 of 4217 executions (progress=91.53%, left=357, execs/s=48.19, time_left=Some(7s), phase=Discovery)
 
-[2025-06-23 19:59:39,482][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 19:59:39,482][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 19:59:39,482][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 19:59:39,844][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:00:10,617][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:00:10,618][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:00:10,618][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:00:11,564][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:00:45,821][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:00:45,821][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:00:45,821][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:00:46,170][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:01:16,164][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 20:01:16,170][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:01:16,171][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:01:16,171][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:01:16,533][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:01:16,914][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T17:59:16.386119612Z [2025-06-23 17:59:16:385850823][scheduler][7749][run_phase.rs:267][[37mINFO[0m] round   stats: FuzzerStats {
 2025-06-23T17:59:16.386174386Z     init_ts: Some(
@@ -25497,23 +25124,7 @@ echo $HOME
 2025-06-23T18:01:13.848787400Z }
 2025-06-23T18:01:16.224977465Z [2025-06-23 18:01:16:224828973][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 780 of 14007 executions (progress=5.57%, left=13227, execs/s=38.94, time_left=Some(339s), phase=Discovery)
 
-[2025-06-23 20:01:46,656][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:01:46,656][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:01:46,656][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:01:47,045][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:02:17,047][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:02:17,047][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:02:17,047][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:02:17,468][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:02:47,763][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:02:47,763][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:02:47,764][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:02:48,118][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:03:18,438][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:03:18,438][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:03:18,438][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 20:03:27,232][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 20:03:27,996][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:03:28,513][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:01:16.224977465Z [2025-06-23 18:01:16:224828973][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 780 of 14007 executions (progress=5.57%, left=13227, execs/s=38.94, time_left=Some(339s), phase=Discovery)
 2025-06-23T18:01:16.729774590Z [2025-06-23 18:01:16:729416300][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 5890 of 5922 executions (progress=99.46%, left=32, execs/s=49.05, time_left=Some(0ns), phase=Discovery)
@@ -26027,23 +25638,7 @@ echo $HOME
 2025-06-23T18:03:27.319385042Z [2025-06-23 18:03:27:319276246][scheduler][7860][queue.rs:231][[37mDEBUG[0m] Patch Points left for discovery 16830
 2025-06-23T18:03:27.415321496Z [2025-06-23 18:03:27:415149269][scheduler][7860][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 8542 executions
 
-[2025-06-23 20:03:58,003][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:03:58,003][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:03:58,003][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:03:59,248][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:04:29,251][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:04:29,251][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:04:29,251][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:04:31,004][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:05:01,015][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:05:01,015][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:05:01,015][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:05:02,594][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:05:34,460][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:05:34,460][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:05:34,465][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 20:05:34,844][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 20:05:34,857][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:05:35,484][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:03:37.664146285Z [2025-06-23 18:03:37:663881473][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 7374 of 15081 executions (progress=48.90%, left=7707, execs/s=52.62, time_left=Some(145s), phase=Discovery)
 2025-06-23T18:03:42.606464622Z [2025-06-23 18:03:42:606027463][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 2226 of 9884 executions (progress=22.52%, left=7658, execs/s=55.59, time_left=Some(136s), phase=Discovery)
@@ -26155,22 +25750,6 @@ echo $HOME
 2025-06-23T18:05:24.049474172Z [2025-06-23 18:05:24:049098669][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 11096 of 20875 executions (progress=53.15%, left=9779, execs/s=50.40, time_left=Some(191s), phase=Discovery)
 2025-06-23T18:05:27.446850149Z [2025-06-23 18:05:27:446546002][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 6246 of 8542 executions (progress=73.12%, left=2296, execs/s=52.03, time_left=Some(43s), phase=Discovery)
 
-[2025-06-23 20:06:04,865][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:06:04,865][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:06:04,865][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:06:05,240][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:06:37,969][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:06:37,974][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:06:37,974][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:06:38,538][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:07:08,540][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:07:08,540][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:07:08,540][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:07:09,089][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:07:39,404][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:07:39,404][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:07:39,404][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:07:39,731][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:07:39,908][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 20:07:40,661][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:05:36.246381601Z [2025-06-23 18:05:36:246076511][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 5035 of 9279 executions (progress=54.26%, left=4244, execs/s=50.32, time_left=Some(83s), phase=Discovery)
@@ -26522,22 +26101,6 @@ echo $HOME
 2025-06-23T18:07:32.173268935Z [2025-06-23 18:07:32:172981280][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 4253 of 10280 executions (progress=41.37%, left=6027, execs/s=53.12, time_left=Some(111s), phase=Discovery)
 2025-06-23T18:07:33.871098974Z [2025-06-23 18:07:33:870888474][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 4224 of 8935 executions (progress=47.27%, left=4711, execs/s=52.77, time_left=Some(88s), phase=Discovery)
 
-[2025-06-23 20:08:09,847][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:08:09,847][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:08:09,847][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:08:10,207][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:08:40,207][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:08:40,208][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:08:40,208][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:08:40,640][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:09:10,701][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:09:10,701][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:09:10,701][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:09:11,080][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:09:41,194][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:09:41,194][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:09:41,194][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:09:41,443][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:09:42,622][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 20:09:43,312][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:07:44.495923231Z [2025-06-23 18:07:44:495504036][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 2064 of 11952 executions (progress=17.27%, left=9888, execs/s=51.55, time_left=Some(190s), phase=Discovery)
@@ -26874,23 +26437,7 @@ echo $HOME
 2025-06-23T18:09:32.861319992Z [2025-06-23 18:09:32:861112398][scheduler][7895][mutators.rs:94][[37mDEBUG[0m] Mutator RandomByte(1) exceeded timeout of 60s
 2025-06-23T18:09:42.874430951Z [2025-06-23 18:09:42:874218699][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 1885 of 4483 executions (progress=42.05%, left=2598, execs/s=47.08, time_left=Some(54s), phase=Discovery)
 
-[2025-06-23 20:10:18,566][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:10:18,567][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:10:18,567][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:10:18,871][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:10:48,960][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:10:48,961][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:10:48,961][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:11:03,940][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:11:36,408][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:11:36,408][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:11:36,408][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:11:36,719][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:12:09,979][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:12:09,984][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:12:09,984][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 20:12:10,311][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 20:12:10,340][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:12:11,031][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:09:43.954657839Z [2025-06-23 18:09:43:954359142][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 958 of 13260 executions (progress=7.22%, left=12302, execs/s=47.82, time_left=Some(256s), phase=Discovery)
 2025-06-23T18:09:44.613191822Z [2025-06-23 18:09:44:612970522][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 12359 of 34383 executions (progress=35.95%, left=22024, execs/s=56.15, time_left=Some(386s), phase=Discovery)
@@ -27018,22 +26565,6 @@ echo $HOME
 2025-06-23T18:12:08.928502059Z [2025-06-23 18:12:08:928171993][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 8543 of 15218 executions (progress=56.14%, left=6675, execs/s=53.36, time_left=Some(123s), phase=Discovery)
 2025-06-23T18:12:09.687678969Z [2025-06-23 18:12:09:687464171][scheduler][7895][mutators.rs:94][[37mDEBUG[0m] Mutator RandomByte(1) exceeded timeout of 60s
 
-[2025-06-23 20:12:43,286][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:12:43,287][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:12:43,288][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:12:54,557][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:13:27,198][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:13:27,198][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:13:27,198][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:13:27,707][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:13:57,708][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:13:57,708][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:13:57,711][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:13:58,047][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:14:28,048][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:14:28,048][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:14:28,048][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:14:29,016][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:14:29,141][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 20:14:29,860][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:12:12.319405372Z [2025-06-23 18:12:12:319144807][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 4901 of 11152 executions (progress=43.95%, left=6251, execs/s=48.96, time_left=Some(127s), phase=Discovery)
@@ -27468,22 +26999,6 @@ echo $HOME
 2025-06-23T18:14:24.900254446Z [2025-06-23 18:14:24:900037124][scheduler][7749][run_phase.rs:74][[37mINFO[0m] Fuzzing 50 entries in 6214 executions
 2025-06-23T18:14:26.532863838Z [2025-06-23 18:14:26:532497483][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 916 of 10541 executions (progress=8.69%, left=9625, execs/s=45.71, time_left=Some(209s), phase=Discovery)
 
-[2025-06-23 20:15:01,614][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:15:01,614][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:15:01,614][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:15:01,947][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:15:32,332][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:15:32,332][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:15:32,332][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:15:32,778][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:16:02,872][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:16:02,873][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:16:02,873][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:16:03,291][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:16:33,311][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:16:33,311][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:16:33,311][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:16:33,668][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:16:33,684][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
 [2025-06-23 20:16:34,366][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:14:30.698979729Z [2025-06-23 18:14:30:698771664][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 6147 of 15673 executions (progress=39.22%, left=9526, execs/s=51.18, time_left=Some(183s), phase=Discovery)
@@ -27597,23 +27112,7 @@ echo $HOME
 2025-06-23T18:16:26.596524881Z [2025-06-23 18:16:26:596324751][scheduler][7825][run_phase.rs:158][[37mDEBUG[0m] Completed 6807 of 10541 executions (progress=64.58%, left=3734, execs/s=48.59, time_left=Some(76s), phase=Discovery)
 2025-06-23T18:16:33.653570081Z [2025-06-23 18:16:33:653326839][scheduler][7860][run_phase.rs:158][[37mDEBUG[0m] Completed 6972 of 16134 executions (progress=43.21%, left=9162, execs/s=49.77, time_left=Some(183s), phase=Discovery)
 
-[2025-06-23 20:17:05,246][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:17:05,247][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:17:05,247][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:17:05,772][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:17:37,298][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:17:37,299][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:17:37,299][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:17:37,646][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:18:08,433][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:18:08,436][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:18:08,436][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:18:08,774][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:18:38,775][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:18:38,775][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:18:38,775][manager][INFO][manager.py:139]: There are 0 pending jobs
 [2025-06-23 20:18:39,242][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:402]: Polling logs...
-[2025-06-23 20:18:39,266][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:18:39,983][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:408]: 
 2025-06-23T18:16:38.484607085Z [2025-06-23 18:16:38:484348825][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 3941 of 6656 executions (progress=59.21%, left=2715, execs/s=49.23, time_left=Some(54s), phase=Discovery)
 2025-06-23T18:16:39.855473975Z [2025-06-23 18:16:39:855201197][scheduler][7749][run_phase.rs:267][[37mINFO[0m] round   stats: FuzzerStats {
@@ -28192,16 +27691,6 @@ echo $HOME
 2025-06-23T18:18:29.782508566Z [2025-06-23 18:18:29:782215077][scheduler][7895][run_phase.rs:158][[37mDEBUG[0m] Completed 3095 of 19272 executions (progress=16.06%, left=16177, execs/s=51.54, time_left=Some(311s), phase=Discovery)
 2025-06-23T18:18:34.587083562Z [2025-06-23 18:18:34:586791055][scheduler][7749][run_phase.rs:158][[37mDEBUG[0m] Completed 943 of 6795 executions (progress=13.88%, left=5852, execs/s=47.05, time_left=Some(121s), phase=Discovery)
 
-[2025-06-23 20:19:09,435][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:19:09,435][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:19:09,435][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:19:09,821][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
-[2025-06-23 20:19:46,613][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:19:46,613][manager][INFO][manager.py:122]: There are still jobs running
-[2025-06-23 20:19:46,613][manager][INFO][manager.py:139]: There are 0 pending jobs
-[2025-06-23 20:20:15,567][manager][INFO][manager.py:145]: Remote localhost has 0 free cores
 [2025-06-23 20:20:16,221][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][INFO][remote.py:370]: Wating for container exit status...
 [2025-06-23 20:20:16,545][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][ERROR][remote.py:373]: Container exits with an non zero exit code.
 [2025-06-23 20:20:16,546][manager.ft_artifact_openlib_client_server_1_4cores_3600s_1][ERROR][remote.py:374]: This is container 16750ee36ea2bae5f5d8ec27050376391b9b5d4fe53855c4749f8d62988de6e8 on localhost.
-[2025-06-23 20:21:02,042][manager][INFO][manager.py:115]: All jobs scheduled
-[2025-06-23 20:21:02,042][manager][INFO][manager.py:119]: All executors terminated, exiting...
